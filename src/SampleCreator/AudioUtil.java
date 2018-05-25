@@ -38,6 +38,7 @@ public class AudioUtil {
      * audio format nor open the audio data line.
      */
     public void start() throws LineUnavailableException {
+    	
         format = getAudioFormat();
         DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
  

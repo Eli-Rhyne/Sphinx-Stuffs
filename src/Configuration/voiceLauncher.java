@@ -1,3 +1,4 @@
+
 package Configuration;
 
 //Imports
@@ -18,9 +19,9 @@ public class voiceLauncher {
       // Set path to the acoustic model.
       configuration.setAcousticModelPath("Resources/en-us-eli");
       // Set path to the dictionary.
-      configuration.setDictionaryPath("Resources/cmudict-en-us.dict");
+      configuration.setDictionaryPath("Resources/Commands.dic");
       // Set path to the language model.
-      configuration.setLanguageModelPath("Resources/en-us.lm.bin");
+      configuration.setLanguageModelPath("Resources/Commands.lm");
       
       //Recognizer object, Pass the Configuration object
       LiveSpeechRecognizer recognize = new LiveSpeechRecognizer(configuration);
@@ -30,13 +31,15 @@ public class voiceLauncher {
 
       //Create SpeechResult Object
       SpeechResult result;
-
+      
+      VoiceEx kevin = new VoiceEx();
       //Checking if recognizer has recognized the speech
       while ((result = recognize.getResult()) != null) {
           //Get the recognize speech
           String command = result.getHypothesis();
         //Match recognized speech with our commands
          System.out.println(command);
+         kevin.say(command);
       }
       
     }

@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="libs/sphinx4-core-5prealpha.jar"/>
 	<classpathentry kind="lib" path="libs/sphinx4-data-5prealpha.jar"/>
+	<classpathentry kind="lib" path="libs/freetts.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
