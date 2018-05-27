@@ -1,4 +1,4 @@
-package SampleCreator;
+package Sphinx4.SampleCreator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

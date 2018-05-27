@@ -1,4 +1,4 @@
-package SampleCreator;
+package Sphinx4.SampleCreator;
 //Java program to play an Audio
 //file using Clip Object
 import java.io.File;

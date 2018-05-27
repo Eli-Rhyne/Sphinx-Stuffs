@@ -1,5 +1,5 @@
 
-package Configuration;
+package Sphinx4.Inititial;
 
 //Imports
 import edu.cmu.sphinx.api.*;
