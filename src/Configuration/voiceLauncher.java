@@ -2,9 +2,7 @@
 package Configuration;
 
 //Imports
-import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
-import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.api.*;
 import java.io.IOException;
 
 /**
@@ -15,13 +13,15 @@ public class voiceLauncher {
   public static void main(String[] args) throws IOException {
       // Configuration Object
       Configuration configuration = new Configuration();
-
+      
       // Set path to the acoustic model.
-      configuration.setAcousticModelPath("Resources/en-us-eli");
+      //configuration.setAcousticModelPath("Resources/en-us-eli");
+      configuration.setAcousticModelPath("Resources/hub4opensrc.cd_continuous_8gau");
       // Set path to the dictionary.
       configuration.setDictionaryPath("Resources/Commands.dic");
       // Set path to the language model.
       configuration.setLanguageModelPath("Resources/Commands.lm");
+      
       
       //Recognizer object, Pass the Configuration object
       LiveSpeechRecognizer recognize = new LiveSpeechRecognizer(configuration);
@@ -31,15 +31,13 @@ public class voiceLauncher {
 
       //Create SpeechResult Object
       SpeechResult result;
-      
-      VoiceEx kevin = new VoiceEx();
+
       //Checking if recognizer has recognized the speech
       while ((result = recognize.getResult()) != null) {
-          //Get the recognize speech
-          String command = result.getHypothesis();
-        //Match recognized speech with our commands
-         System.out.println(command);
-         kevin.say(command);
+		//Get the recognize speech
+		String command = result.getHypothesis();
+		//Match recognized speech with our commands
+		System.out.println(command);
       }
       
     }
