@@ -1,7 +1,8 @@
 package Jarvis.Google;
 
 import java.io.File;
-import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
 
 import javaFlacEncoder.FLACFileWriter;
 
@@ -15,32 +16,21 @@ public class GoogleRecognize {
 	private static File file;
 	private static Recognizer recognizer;
 	
-	public static void intialize() {
-  
+	public GoogleRecognize() {
 		mic = new Microphone(FLACFileWriter.FLAC);
-
-		file = new File ("Resources/tempaudio.flac");
-
-		try {file.createNewFile();} catch (IOException e) {
-			System.err.println("Could not create temp file");
-			e.printStackTrace();
-		}
+		file = new File("tempaudio.flac");
 		recognizer = new Recognizer (Recognizer.Languages.ENGLISH_US, false, "AIzaSyD8GsBCn5bQnm7WCFCdYAdm6SrvU0Y1QPA");
 	}
-  
-	public void record() {
-		try {mic.captureAudioToFile (file);} catch (Exception ex) {
-			System.out.println ("ERROR: Microphone is not availible.");
-			ex.printStackTrace ();
-			System.out.println ("Recording...");
-		}
-	}
-
-    public void endRecord() {
+	
+	public void record(int timeInMilli) throws LineUnavailableException, InterruptedException {
+		mic.captureAudioToFile(file);
+		System.out.println ("Recording...");
+		Thread.sleep(timeInMilli);
 		mic.close ();
 		System.out.println ("Recording stopped.");
-    }
-    
+	}
+  
+
     public String recognize() {
     	//Although auto-detect is available, it is recommended you select your region for added accuracy.
     	try {

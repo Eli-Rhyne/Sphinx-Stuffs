@@ -6,8 +6,9 @@ public class YoutubeDownload implements Runnable {
 	
 	static String url;
 	static String name;
-	public static void YoutubeDownload(String urls, String nam) {
-		url = urls;
+	
+	public YoutubeDownload(String link, String nam) {
+		url = link;
 		name = nam;
     }
 
